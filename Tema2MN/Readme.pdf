@@ -1,0 +1,63 @@
+Pentru implementarea functiilor, m-am folosit de indicatiile din scheletele propuse,
+ceea ce a usurat foarte mult realizarea temei.
+
+Task1
+Funcția task1 primește o matrice photo reprezentând o imagine și un parametru k. 
+Scopul funcției este de a aplica algoritmul SVD asupra matricei photo pentru a 
+obține o aproximare a matricei inițiale cu un rang redus dat de k.
+Astfel, funcția task1 returnează o aproximare a matricei inițiale photo cu un rang 
+redus dat de k.
+
+Task2
+Aceasta functie realizează o analiză a valorilor singulare (SVD) asupra unei matrice
+de imagini și aproximează această matrice utilizând un spațiu de componente principale 
+redus. Acest proces implică calculul mediei pentru fiecare imagine, obținerea 
+componentelor principale și proiecția imaginilor în spațiul componentelor principale.
+Matricea rezultată este o aproximare a matricei inițiale și este convertită într-o 
+imagine validă.
+
+Task3
+Funcția task3 realizează o analiză a componentelor principale (PCA) asupra unei matrice 
+de imagini și aproximează matricea inițială utilizând o dimensiune redusă a spațiului 
+componentelor principale. Procesul implică calculul mediei pentru fiecare imagine, 
+normalizarea matricei inițiale prin scăderea mediei fiecărui rând, calcularea 
+matricei de covarianță, determinarea vectorilor și valorilor proprii ale matricei 
+de covarianță, selectarea celor mai semnificative componente principale și proiecția
+imaginilor în aceste componente. Matricea rezultată este o aproximare a matricei 
+inițiale, iar media rândurilor este adăugată înapoi pentru a obține rezultatul final. 
+Matricea este convertită într-o imagine validă prin transformarea în formatul uint8.
+
+Task4
+Funcția prepare_data(name, no_train_images) primește un nume de fișier și numărul de 
+imagini de antrenament și se ocupă de încărcarea datelor din fișierul specificat. 
+Apoi, salvează primele no_train_images linii din tabelul de imagini de antrenament 
+în matricea train_mat și primele no_train_images valori ale vectorului de etichete 
+în vectorul train_val.
+
+Funcția visualise_image(train_mat, number) primește matricea de antrenament și un 
+număr de imagine și se ocupă de citirea liniei corespunzătoare numărului specificat 
+din matricea de antrenament. Apoi, transformă linia citită într-o matrice 28x28 
+prin utilizarea funcției reshape și o transpune. În final, returnează matricea rezultată.
+
+Funcția magic_with_pca(train_mat, pcs) primește matricea de antrenament și numărul de 
+componente principale dorite. Aceasta aplică algoritmul PCA asupra matricei de 
+antrenament, calculând media fiecărei coloane, scăzând media din matricea inițială, 
+calculând matricea de covarianță, determinând vectorii și valorile proprii, selectând 
+primele pcs componente principale și reconstruind matricea de antrenament utilizând 
+aceste componente. Funcția returnează matricea rezultată, matricea medie, matricea 
+proiecție și matricea de bază.
+
+Funcția prepare_photo(im) primește o imagine și se ocupă de inversarea pixelilor, 
+transpunerea imaginii și transformarea acesteia într-un vector linie, utilizând 
+funcția reshape. Rezultatul este returnat ca un vector linie.
+
+Funcția KNN(labels, Y, test, k) primește etichetele, matricea de proiecție, o imagine 
+de test și numărul de vecini (k). Aceasta calculează distanța euclidiană între 
+fiecare rând al matricei de proiecție și vectorul de test, sortează distanțele și 
+returnează predictia bazată pe mediana primelor k valori cele mai apropiate.
+
+Funcția classifyImage(im, train_mat, train_val, pcs) primește o imagine, matricea 
+de antrenament, vectorul de etichete și numărul de componente principale. Aceasta 
+aplică algoritmul PCA asupra setului de date de antrenament, scade media fiecărei 
+coloane din matricea de antrenament, schimbă baza matricei de antrenament, și 
+calculează predicția utilizând algoritmul KNN cu k = 5.

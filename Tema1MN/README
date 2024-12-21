@@ -1,0 +1,17 @@
+Am rezolvat Cerinta1, ajutandu-ma de explicatiile propuse in enunttul temei.
+Pentru inceput, in functia parse_labyrinth, implementez citirea matricei ce va trebui 
+sa fie prelucrata, o initializez cu 0 si pun elementele din fisier in ea.
+
+Functia get_adjacency_matrix creeaza matricea de adiacenta, determina diemsiunea labirintului
+si numarul de noduri ale grafului asociat, iar apoi parcurge fiecare celula din labirint, 
+cu scopul de a veridfica existenta peretelui si vecinii celulei curente.
+
+Similar implementez si get_link_matrix, doar ca de data asta calculez probabilitatea
+pe masura de parcurg labirintul. Conectez nodurile de intrare și ieșire speciale 
+la rândul superior și inferior de noduri si setez intrarea și ieșirea specială
+să nu aibă muchii de ieșire.
+
+Functiile get_Jacobi_parameters si perform_iterative se bazeaza pe algoritmi
+cunoscuti in matematica, doar i-am implementat in Octave.
+
+Iar in final, decode_path transforma parametrii primiti in perechile cerute. 
